@@ -118,28 +118,30 @@ function draw() {
             patience=0;
         }
         print("patience:",patience);
-    }
-    //次で白が手を置けるかチェック
-    kururi=0;
-    flipCount = 0;
-    isOk=0;
-    for (let row = 0; row < 8; row++) {
-        for (let col = 0; col < 8; col++) {
-            if (getpos(row, col) == 0) {//石がない場所
-                board[row][col] = 1;//仮置き
-                for (let i = -1; i < 2; i++) {
-                    for (let j = -1; j < 2; j++) {
-                        checkReverse(row, col, i, j);
+
+        //次で白が手を置けるかチェック
+        kururi=0;
+        flipCount = 0;
+        isOk=0;
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                if (getpos(row, col) == 0) {//石がない場所
+                    board[row][col] = 1;//仮置き
+                    for (let i = -1; i < 2; i++) {
+                        for (let j = -1; j < 2; j++) {
+                            checkReverse(row, col, i, j);
+                        }
                     }
-                }
-                board[row][col] = 0;//仮置きを取り除く
-                if (flipCount != 0){//石が取れる場所がある場合
-                    isOk=1;
-                }
-            }            
+                    board[row][col] = 0;//仮置きを取り除く
+                    if (flipCount != 0){//石が取れる場所がある場合
+                        isOk=1;
+                    }
+                }            
+            }
         }
+        if(isOk==0) turn=2;
     }
-    if(isOk==0) turn=2;
+
 }
 
 
