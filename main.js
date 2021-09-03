@@ -80,7 +80,7 @@ function draw() {
             }
         }
         //print(rC);
-        let choice = int(random(1, rC));//置ける盤面からランダムに選択する,1以上rC未満
+        let choice;
         //ランダムではなくCPUを弱くするためにとれる石の数が最小の手を常に選ぶようにした
         for (let i=1;i<rC;i++){
             if(countFlip[i]==minFlip){
@@ -88,6 +88,7 @@ function draw() {
                 break;
             }
         }
+        //置ける盤面からランダムに選択する,1以上rC未満
         if(minFlip==Max) choice = int(random(1, rC));
         print("minFlip:",minFlip,"countFlip[choice]:",countFlip[choice]);
         reverseC(countR[choice], countC[choice]);//黒に置き換え
