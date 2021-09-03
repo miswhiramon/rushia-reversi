@@ -313,12 +313,12 @@ function count_each(){
     let black=0;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-        let c = getpos(i, j);//i行,j列目の石の色
-        if (c == 1) {
-            white++;
-        } else if (c == 2) {
-            black++;
-        }
+            let c = getpos(i, j);//i行,j列目の石の色
+            if (c == 1) {
+                white++;
+            } else if (c == 2) {
+                black++;
+            }
         }
     }
     print("white(you):",white,"black(rushia)",black)
