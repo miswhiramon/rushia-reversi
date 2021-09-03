@@ -95,8 +95,7 @@ function draw() {
         //置ける盤面からランダムに選択する,1以上rC未満
         print("minFlip:",minFlip,"choice:",choice,"countFlip[choice]:",countFlip[choice]);
         for(let i=1;i<countFlip.length;i++) print("countFlip[",i,"]:",countFlip[i]);
-
-        reverseC(countR[choice], countC[choice]);//黒に置き換え
+        if(minFlip!=Max) reverseC(countR[choice], countC[choice]);//黒に置き換え
 
 
         count_each();//black,whiteをカウント
