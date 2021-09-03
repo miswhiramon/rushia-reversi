@@ -1,11 +1,21 @@
+// let board = [//1:white,2:black
+//     [0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 1, 2, 0, 0, 0],
+//     [0, 0, 0, 2, 1, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0]
+// ];
 let board = [//1:white,2:black
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 1, 2, 0, 0, 0],
-    [0, 0, 0, 2, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 2, 2, 2, 0, 0, 0, 0],
+    [2, 2, 1, 1, 1, 0, 0, 0],
+    [2, 2, 1, 1, 1, 1, 0, 0],
+    [2, 1, 1, 1, 1, 1, 1, 0],
+    [2, 1, 1, 1, 1, 0, 0, 0],
+    [2, 1, 1, 1, 1, 1, 0, 0],
+    [2, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 let turn = 1;//対戦のターン,1:プレイヤー,2:CPU
@@ -85,14 +95,6 @@ function draw() {
         }
         //print(rC);
         let choice=minFlipId;
-        //ランダムではなくCPUを弱くするためにとれる石の数が最小の手を常に選ぶようにした
-        // for (let i=1;i<rC;i++){
-        //     if(countFlip[i]==minFlip){
-        //         choice = i;
-        //         break;
-        //     }
-        // }
-        //置ける盤面からランダムに選択する,1以上rC未満
         print("minFlip:",minFlip,"choice:",choice,"countFlip[choice]:",countFlip[choice]);
         for(let i=1;i<countFlip.length;i++) print("countFlip[",i,"]:",countFlip[i]);
         if(minFlip!=Max) reverseC(countR[choice], countC[choice]);//黒に置き換え
@@ -115,6 +117,11 @@ function draw() {
             patience=0;
         }
         print("patience:",patience);
+    }
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            
+        }
     }
 }
 
