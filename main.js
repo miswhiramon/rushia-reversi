@@ -58,7 +58,7 @@ function draw() {
         let countC = [];
         let countFlip = [];
         let Max=100000;
-        let minFlip=Max;
+        let minFlipId=Max;
         let rC = 0;
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
@@ -74,29 +74,27 @@ function draw() {
                         countFlip[rC] = flipCount;
                         board[countR[rC]][countC[rC]] = 0;
                         //print(countR[rC], countC[rC]);
-                        if(flipCount<minFlip) minFlip=flipCount;
+                        if(flipCount<minFlip) minFlipId=rC;
                     }
                 }
             }
         }
         //print(rC);
-        let choice;
+        let choice=minFlipId;
         //ランダムではなくCPUを弱くするためにとれる石の数が最小の手を常に選ぶようにした
-        for (let i=1;i<rC;i++){
-            if(countFlip[i]==minFlip){
-                choice = i;
-                break;
-            }
-        }
+        // for (let i=1;i<rC;i++){
+        //     if(countFlip[i]==minFlip){
+        //         choice = i;
+        //         break;
+        //     }
+        // }
         //置ける盤面からランダムに選択する,1以上rC未満
-        if(minFlip!=Max){
-            print("minFlip:",minFlip,"countFlip[choice]:",countFlip[choice]);
-            for(let i=1;i<countFlip.length;i++) print("countFlip[",i,"]:",countFlip[i]);
-            reverseC(countR[choice], countC[choice]);//黒に置き換え
-        }else{
-            print("")
-        }
-        
+        print("minFlip:",minFlip,"choice:",choice,"countFlip[choice]:",countFlip[choice]);
+        for(let i=1;i<countFlip.length;i++) print("countFlip[",i,"]:",countFlip[i]);
+
+        reverseC(countR[choice], countC[choice]);//黒に置き換え
+
+
         count_each();//black,whiteをカウント
         if(currentWhite>currentBlack){
             patience++;
