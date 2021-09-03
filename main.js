@@ -57,7 +57,8 @@ function draw() {
         let countR = [];
         let countC = [];
         let countFlip = [];
-        let minFlip=100;
+        let Max=100000;
+        let minFlip=Max;
         let rC = 0;
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
@@ -87,6 +88,7 @@ function draw() {
                 break;
             }
         }
+        if(minFlip==Max) choice = int(random(1, rC));
         print("minFlip:",minFlip,"countFlip[choice]:",countFlip[choice]);
         reverseC(countR[choice], countC[choice]);//黒に置き換え
         count_each();//black,whiteをカウント
