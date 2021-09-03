@@ -173,7 +173,7 @@ function check(r, c,player) {
             checkReverse(row, col, i, j);
         }
     }
-    board[ro][co] = 0;
+    board[row][col] = 0;
 
     if(flipCount>0) return 1;
     
