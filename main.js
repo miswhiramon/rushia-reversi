@@ -24,7 +24,7 @@ let s = 50;
 let col;//列
 let row;//行
 let kururi = 0;//石が置けるか、0:石が置けない場所,1以上:石を置くと相手の石を挟める
-let count = 30;//残りの打てる手数:60
+let count = 60;//残りの打てる手数:60
 let white = 0;//白石の数
 let black = 0;//黒石の数
 let flipCount = 0;//ひっくり返せる場所の数
@@ -75,10 +75,8 @@ function draw() {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
                 if (getpos(i, j) == 0) {//石がない場所
-                    check(i, j);//石が取れる場所を探索する
-                    if (flipCount == 0) {//石が取れる場所が無かった場合
-                        board[row][col] = 0;
-                    } else {//石が取れる場所がある場合
+                    if (check(i, j, 2)) {//石が取れる場所がある場合
+                        board[row][col] = 2;
                         //石が置ける場所を記録する。
                         rC++;
                         countR[rC] = row;
@@ -120,26 +118,31 @@ function draw() {
         print("patience:",patience);
 
         //次で白が手を置けるかチェック
-        kururi=0;
-        flipCount = 0;
-        isOk=0;
+        isWhiteOk=0;
+        isBlackOk=0;
         for (let row = 0; row < 8; row++) {
             for (let col = 0; col < 8; col++) {
                 if (getpos(row, col) == 0) {//石がない場所
-                    board[row][col] = 1;//仮置き
-                    for (let i = -1; i < 2; i++) {
-                        for (let j = -1; j < 2; j++) {
-                            checkReverse(row, col, i, j);
-                        }
-                    }
-                    board[row][col] = 0;//仮置きを取り除く
-                    if (flipCount != 0){//石が取れる場所がある場合
-                        isOk=1;
+                    if(check(row,col,1)){//白石を置ける場合
+                        isWhiteOk++;
                     }
                 }            
             }
         }
-        if(isOk==0) turn=2;
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                if (getpos(row, col) == 0) {//石がない場所
+                    if(check(row,col,2)){//白石を置ける場合
+                        isBlackOk++;
+                    }
+                }            
+            }
+        }
+        if(!isWhiteOk) turn=2;
+        if(!isWhiteOk&&!isBlackOk){
+            turn=0;
+            result();
+        }
     }
 
 }
@@ -159,17 +162,22 @@ function reverseC(ro, co) {
 }
 
 //石が置けるかチェックする関数
-function check(r, c) {
+function check(r, c,player) {
     row = r;
     col = c;
     kururi = 0;
     flipCount = 0;//ひっくり返せる場所の数を初期化
-    board[row][col] = 2;
+    board[row][col] = player;
     for (let i = -1; i < 2; i++) {
         for (let j = -1; j < 2; j++) {
             checkReverse(row, col, i, j);
         }
     }
+    board[ro][co] = 0;
+
+    if(flipCount>0) return 1;
+    
+    return 0;
 }
 
 //盤面指定位置の石の色を返す,白:1,黒:2,空:0
