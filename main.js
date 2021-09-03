@@ -123,16 +123,16 @@ function draw() {
     kururi=0;
     flipCount = 0;
     isOk=0;
-    for (let i = 0; i < 8; i++) {
-        for (let j = 0; j < 8; j++) {
-            if (getpos(i, j) == 0) {//石がない場所
+    for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+            if (getpos(row, col) == 0) {//石がない場所
+                board[row][col] = 1;//仮置き
                 for (let i = -1; i < 2; i++) {
-                    board[row][col] = 1;
                     for (let j = -1; j < 2; j++) {
-                        checkReverse(ro, co, i, j);
+                        checkReverse(row, col, i, j);
                     }
                 }
-                board[row][col] = 0;
+                board[row][col] = 0;//仮置きを取り除く
                 if (flipCount != 0){//石が取れる場所がある場合
                     isOk=1;
                 }
