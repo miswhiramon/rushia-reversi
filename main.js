@@ -1,3 +1,4 @@
+//行と列は実表示と対称
 // let board = [//1:white,2:black
 //     [0, 0, 0, 0, 0, 0, 0, 0],
 //     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -118,11 +119,27 @@ function draw() {
         }
         print("patience:",patience);
     }
+    //次で白が手を置けるかチェック
+    kururi=0;
+    flipCount = 0;
+    isOk=0;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-            
+            if (getpos(i, j) == 0) {//石がない場所
+                for (let i = -1; i < 2; i++) {
+                    board[row][col] = 1;
+                    for (let j = -1; j < 2; j++) {
+                        checkReverse(ro, co, i, j);
+                    }
+                }
+                board[row][col] = 0;
+                if (flipCount != 0){//石が取れる場所がある場合
+                    isOk=1;
+                }
+            }            
         }
     }
+    if(isOk==0) turn=2;
 }
 
 
