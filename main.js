@@ -58,7 +58,8 @@ function draw() {
         let countC = [];
         let countFlip = [];
         let Max=100000;
-        let minFlipId=Max;
+        let minFlipId;
+        let minFlip=Max;
         let rC = 0;
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
