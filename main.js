@@ -75,7 +75,10 @@ function draw() {
                         countFlip[rC] = flipCount;
                         board[countR[rC]][countC[rC]] = 0;
                         //print(countR[rC], countC[rC]);
-                        if(flipCount<minFlip) minFlipId=rC;
+                        if(flipCount<minFlip){
+                            minFlipId=rC;
+                            minFlip=flipCount;
+                        } 
                     }
                 }
             }
