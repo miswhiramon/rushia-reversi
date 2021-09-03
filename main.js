@@ -24,7 +24,7 @@ let s = 50;
 let col;//列
 let row;//行
 let kururi = 0;//石が置けるか、0:石が置けない場所,1以上:石を置くと相手の石を挟める
-let count = 30;//残りの打てる手数
+let count = 30;//残りの打てる手数:60
 let white = 0;//白石の数
 let black = 0;//黒石の数
 let flipCount = 0;//ひっくり返せる場所の数
