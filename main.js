@@ -41,7 +41,8 @@ function setup() {
     createCanvas(400, 400);
 
     textSize(32);
-    place_disk=loadSound('./オセロ・コマ01.mp3')
+    place_disk=loadSound('./オセロ・コマ01.mp3');
+    menhera=loadSound('./不穏.mp3');
 }
 
 //定期的に実行
@@ -123,12 +124,14 @@ function draw() {
         if (patience==0){
             print("Rushia Normal.");
         }else if(patience==1){
+            menhera.play();
             print("Rushia slightly angly.");
         }else if(patience==2){
             print("Rushia Angry!")
         }else if(patience>=3){
             print("Rushia Daipan!")
             patience=0;
+            menhera.stop();
         }
         print("patience:",patience);
 
