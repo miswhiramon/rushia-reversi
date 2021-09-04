@@ -127,10 +127,12 @@ function draw() {
             if(patience>0) patience--;
         }
         if (patience==0){
+            if(menhera.isPlaying()) menhera.stop();
+            if(!normal_state.isPlaying()) normal_state.loop();
             print("Rushia Normal.");
         }else if(patience==1){
             if(normal_state.isPlaying()) normal_state.stop();
-            if(!menhera.isPlaying()) menhera.play();
+            if(!menhera.isPlaying()) menhera.loop();
             print("Rushia slightly angly.");
         }else if(patience==2){
             print("Rushia Angry!")
@@ -138,7 +140,7 @@ function draw() {
             print("Rushia Daipan!")
             patience=0;
             menhera.stop();
-            normal_state.play();
+            normal_state.loop();
         }
         print("patience:",patience);
 
@@ -326,7 +328,7 @@ function mousePressed() {
     col = floor(mouseY / s);
     if (getpos(row, col) == 0) {//まだ石が置かれていない場所であれば
         //bgm再生
-        if((!menhera.isPlaying())&&(!normal_state.isPlaying())) normal_state.play();
+        if((!menhera.isPlaying())&&(!normal_state.isPlaying())) normal_state.loop();
         if (turn == 1) {//プレイヤーのターン
             kururi = 0;
             board[row][col] = 1;//白石を置く
