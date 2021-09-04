@@ -35,6 +35,8 @@ let patience=0;
 
 //bgm
 let place_disk;
+let normal_state;
+let menhera;
 
 //画面の初期設定
 function setup() {
@@ -44,11 +46,11 @@ function setup() {
     place_disk=loadSound('./オセロ・コマ01.mp3');
     normal_state=loadSound('./アトリエと電脳世界.mp3');
     menhera=loadSound('./不穏.mp3');
-    normal_state.play();
 }
 
 //定期的に実行
 function draw() {
+    if((!menhera.isPlaying())&&(!normal_state.isPlaying())) normal_state.play();
     background(0, 140, 0);
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
