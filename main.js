@@ -121,7 +121,7 @@ function draw() {
 
 
         count_each();//black,whiteをカウント
-        if(currentWhite>currentBlack){
+        if(currentWhite>int(1.25*currentBlack)){
             patience++;
         }else{
             if(patience>0) patience--;
