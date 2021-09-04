@@ -124,7 +124,7 @@ function draw() {
         if (patience==0){
             print("Rushia Normal.");
         }else if(patience==1){
-            menhera.play();
+            if(!menhera.isPlaying()) menhera.play();
             print("Rushia slightly angly.");
         }else if(patience==2){
             print("Rushia Angry!")
