@@ -138,8 +138,12 @@ function draw() {
                 }            
             }
         }
-        if(!isWhiteOk) turn=2;
+        if(!isWhiteOk){
+            print("Player White(you) : Pass");
+            turn=2;
+        } 
         if(!isWhiteOk&&!isBlackOk){
+            print("Both Player can't continue.");
             turn=0;
             result();
         }
@@ -357,12 +361,12 @@ function count_each(){
 function result() {
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-        let c = getpos(i, j);
-        if (c == 1) {
-            white++;
-        } else if (c == 2) {
-            black++;
-        }
+            let c = getpos(i, j);
+            if (c == 1) {
+                white++;
+            } else if (c == 2) {
+                black++;
+            }
         }
     }
     if (white > black) {
