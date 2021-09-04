@@ -138,6 +138,7 @@ function draw() {
                 }            
             }
         }
+        print("isWhite:",isWhiteOk,"isBlack:",isBlackOk);
         if(!isWhiteOk){
             print("Player White(you) : Pass");
             turn=2;
