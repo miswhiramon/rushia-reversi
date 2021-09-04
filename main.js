@@ -146,10 +146,14 @@ function draw() {
             }
         }
         print("isWhite:",isWhiteOk,"isBlack:",isBlackOk);
-        if(!isWhiteOk){
+        if(!isWhiteOk&&isBlackOk){
             print("Player White(you) : Pass");
             turn=2;
         } 
+        if(!isBlackOk&&isWhiteOk){
+            print("Player Black(rushia) : Pass");
+            turn=1;
+        }
         if(!isWhiteOk&&!isBlackOk){
             print("Both Player can't continue.");
             turn=0;            
