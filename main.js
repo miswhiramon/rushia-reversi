@@ -59,12 +59,15 @@ function draw() {
         }
     }
 
-    if (count == 0) {//対戦結果の表示
-        result();
-    }
 
-    if(turn==0){
-        result();
+    if(turn==0 || count==0){//対戦結果の表示
+        if (currentWhite > currentBlack) {
+            fill(255, 0, 0);
+            text("White Win!", 120, 200);
+        } else {
+            fill(255, 0, 0);
+            text("Black Win!", 150, 200);
+        }
     }
 
     if (turn == 2) {//CPU側が手を打つ
@@ -149,9 +152,7 @@ function draw() {
         } 
         if(!isWhiteOk&&!isBlackOk){
             print("Both Player can't continue.");
-            result();
-            turn=0;
-            
+            turn=0;            
         }
     }
 
