@@ -50,7 +50,6 @@ function setup() {
 
 //定期的に実行
 function draw() {
-    if((!menhera.isPlaying())&&(!normal_state.isPlaying())) normal_state.play();
     background(0, 140, 0);
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
@@ -324,6 +323,8 @@ function mousePressed() {
     row = floor(mouseX / s);
     col = floor(mouseY / s);
     if (getpos(row, col) == 0) {//まだ石が置かれていない場所であれば
+        //bgm再生
+        if((!menhera.isPlaying())&&(!normal_state.isPlaying())) normal_state.play();
         if (turn == 1) {//プレイヤーのターン
             kururi = 0;
             board[row][col] = 1;//白石を置く
