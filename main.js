@@ -46,6 +46,8 @@ function setup() {
     place_disk=loadSound('./オセロ・コマ01.mp3');
     normal_state=loadSound('./アトリエと電脳世界.m4a');
     menhera=loadSound('./不穏.mp3');
+    normal_state.setVolume(0.5);
+    menhera.setVolume(0.8);
 }
 
 //定期的に実行
