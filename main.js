@@ -33,11 +33,15 @@ let currentWhite=0;
 let currentBlack=0;
 let patience=0;
 
+//bgm
+let place_disk;
+
 //画面の初期設定
 function setup() {
     createCanvas(400, 400);
 
     textSize(32);
+    place_disk=loadSound('./オセロ・コマ01.mp3')
 }
 
 //定期的に実行
@@ -103,7 +107,11 @@ function draw() {
         let choice=minFlipId;
         print("minFlip:",minFlip,"choice:",choice,"countFlip[choice]:",countFlip[choice]);
         for(let i=1;i<countFlip.length;i++) print("countFlip[",i,"]:",countFlip[i]);
-        if(minFlip!=Max) reverseC(countR[choice], countC[choice]);//黒に置き換え
+        if(minFlip!=Max){
+            //石を置く音
+            place_disk.play();
+            reverseC(countR[choice], countC[choice]);//黒に置き換え
+        } 
 
 
         count_each();//black,whiteをカウント
