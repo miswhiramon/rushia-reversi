@@ -63,6 +63,10 @@ function draw() {
         result();
     }
 
+    if(turn==0){
+        result();
+    }
+
     if (turn == 2) {//CPU側が手を打つ
         //もう少し弱くする必要があるかもしれない
         let countR = [];
