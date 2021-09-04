@@ -144,8 +144,9 @@ function draw() {
         } 
         if(!isWhiteOk&&!isBlackOk){
             print("Both Player can't continue.");
-            turn=0;
             result();
+            turn=0;
+            
         }
     }
 
