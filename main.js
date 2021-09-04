@@ -42,6 +42,7 @@ function setup() {
 
     textSize(32);
     place_disk=loadSound('./オセロ・コマ01.mp3');
+    normal=loadSound('./アトリエと電脳世界.mp3');
     menhera=loadSound('./不穏.mp3');
 }
 
@@ -124,6 +125,7 @@ function draw() {
         if (patience==0){
             print("Rushia Normal.");
         }else if(patience==1){
+            if()
             if(!menhera.isPlaying()) menhera.play();
             print("Rushia slightly angly.");
         }else if(patience==2){
