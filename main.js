@@ -46,8 +46,8 @@ function setup() {
     place_disk=loadSound('./オセロ・コマ01.mp3');
     normal_state=loadSound('./light_song.mp3');
     menhera=loadSound('./不穏.mp3');
-    normal_state.setVolume(0.2);
-    menhera.setVolume(0.8);
+    normal_state.setVolume(0.1);
+    menhera.setVolume(0.7);
 }
 
 //定期的に実行
